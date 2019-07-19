@@ -1,3 +1,5 @@
+package sorting;
+
 public class HeapSort
 {
 	static void printArray(int arr[])

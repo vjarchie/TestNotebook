@@ -1,3 +1,5 @@
+package sorting;
+
 public class QuickSort
 {
 	void sort(int[] inputArr,int low,int high){
