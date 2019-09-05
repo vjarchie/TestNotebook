@@ -1,6 +1,6 @@
 class SegmentTree
 {
-	int st[]; // The array that stores segment tree nodes
+	static int st[]; // The array that stores segment tree nodes
 
 	/* Constructor to construct segment tree from given array. This
 	   constructor  allocates memory for segment tree and calls
@@ -17,6 +17,25 @@ class SegmentTree
 		st = new int[max_size]; // Memory allocation
 
 		constructSTUtil(arr, 0, n - 1, 0);
+	}
+
+	// A recursive function that constructs Segment Tree for array[ss..se].
+	// si is index of current node in segment tree st
+	int constructSTUtil(int arr[], int ss, int se, int si)
+	{
+		// If there is one element in array, store it in current node of
+		// segment tree and return
+		if (ss == se) {
+			st[si] = arr[ss];
+			return arr[ss];
+		}
+
+		// If there are more than one elements, then recur for left and
+		// right subtrees and store the sum of values in this node
+		int mid = getMid(ss, se);
+		st[si] = constructSTUtil(arr, ss, mid, si * 2 + 1) +
+				constructSTUtil(arr, mid + 1, se, si * 2 + 2);
+		return st[si];
 	}
 
 	// A utility function to get the middle index from corner indexes.
@@ -105,24 +124,7 @@ class SegmentTree
 		return getSumUtil(0, n - 1, qs, qe, 0);
 	}
 
-	// A recursive function that constructs Segment Tree for array[ss..se].
-	// si is index of current node in segment tree st
-	int constructSTUtil(int arr[], int ss, int se, int si)
-	{
-		// If there is one element in array, store it in current node of
-		// segment tree and return
-		if (ss == se) {
-			st[si] = arr[ss];
-			return arr[ss];
-		}
 
-		// If there are more than one elements, then recur for left and
-		// right subtrees and store the sum of values in this node
-		int mid = getMid(ss, se);
-		st[si] = constructSTUtil(arr, ss, mid, si * 2 + 1) +
-				constructSTUtil(arr, mid + 1, se, si * 2 + 2);
-		return st[si];
-	}
 
 	// Driver program to test above functions
 	public static void main(String args[])
@@ -139,10 +141,19 @@ class SegmentTree
 
 		// Update: set arr[1] = 10 and update corresponding segment
 		// tree nodes
-		tree.updateValue(arr, n, 1, 10);
+		tree.updateValue(arr, n, 1, 5);
+		printTree();
 
 		// Find sum after the value is updated
 		System.out.println("Updated sum of values in given range = " +
 				tree.getSum(n, 1, 3));
+	}
+
+	private static void printTree()
+	{
+		for(int i=0;i<st.length;i++){
+			System.out.print(st[i]+ " ");
+		}
+		System.out.print( "\n");
 	}
 }
