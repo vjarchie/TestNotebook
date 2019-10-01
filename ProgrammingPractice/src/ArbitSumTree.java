@@ -45,6 +45,11 @@ public class ArbitSumTree
 		}
 	}
 
+	/**
+	 * convert arbitrary value tree to sum tree
+	 *
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 

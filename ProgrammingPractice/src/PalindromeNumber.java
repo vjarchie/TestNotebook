@@ -27,10 +27,6 @@ public class PalindromeNumber
 			if(l!=h)
 				return false;
 
-//			x=x-(divisor*h);
-//			System.out.println(" first sub=" + x);
-//			x = x/10;
-//			System.out.println(" second sub=" + x);
 			x = (x % divisor) / 10;
 			divisor = divisor/100;
 			p=p+1;

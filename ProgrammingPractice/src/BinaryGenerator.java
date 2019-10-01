@@ -1,6 +1,6 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+/**
+ * Generate all binary representations withing a range
+ */
 
 public class BinaryGenerator
 {

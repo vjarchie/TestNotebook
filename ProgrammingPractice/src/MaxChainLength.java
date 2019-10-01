@@ -10,12 +10,17 @@ public class MaxChainLength
 
 	}
 
+	/**
+	 * longest chain formed from pairs in ascending order
+	 *
+	 * @param args
+	 */
 	public static void main(String args[])
 	{
 		//array already sorted
 		MaxChainLength arr[] = new MaxChainLength[] { new MaxChainLength(5, 24), new MaxChainLength(15, 25),
 				new MaxChainLength(27, 40), new MaxChainLength(50, 60) };
-		System.out.println(maxChainLengthCalc(arr,4));
+		System.out.println(maxChainLengthCalc(arr, 4));
 	}
 
 	static int maxChainLengthCalc(MaxChainLength arr[], int n)
