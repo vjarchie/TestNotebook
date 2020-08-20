@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class TestSample {
     public static void main(String[] args){
         Long l = new Long(1189);
@@ -12,6 +14,11 @@ public class TestSample {
 
         }
         System.out.println("total="+ total);
+        Date date = new Date();
+        System.out.println(date.getTime());
+        Date date1 = new Date(1590969600000l);
+        System.out.println(date1);
+        System.out.println(date1.getTime());
 
     }
 }
